@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-repo-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: demo-repo-cm
+    app.kubernetes.io/part-of: default
+data:
+  repositories: |
+    - url: git@github.com:adam-stegienko/democrm-app
+      sshPrivateKeySecret:
+        name: demo-repo-secret
+        key: privateKey

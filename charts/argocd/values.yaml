@@ -1,0 +1,23 @@
+argo-cd:
+  dex:
+    enabled: false
+  server:
+    extraArgs:
+    - --insecure
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "nginx"
+      extraPaths:
+        - path: /*
+          pathType: Prefix
+          backend:
+            service:
+              name: argocd-server
+              port:
+                number: 80
+    # config:
+    #   repositories: |
+    #     - type: helm
+    #       name: argo-cd
+    #       url: https://argoproj.github.io/argo-helm

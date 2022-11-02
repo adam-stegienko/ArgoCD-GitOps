@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argo-repo-cm
+  namespace: default
+  labels:
+    app.kubernetes.io/name: argo-repo-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  repositories: |
+    - url: git@github.com:adam-stegienko/argo-app
+      sshPrivateKeySecret:
+        name: argo-repo-secret
+        key: privateKey

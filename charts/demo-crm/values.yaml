@@ -1,0 +1,14 @@
+rabbitmq:
+  auth:
+    username: adam
+    password: password
+
+mongodb:
+  architecture: replicaset
+  replicaCount: 3
+  persistence:
+    enabled: true
+  auth:
+    enabled: true
+    rootUser: adam
+    rootPassword: password
